@@ -1,0 +1,31 @@
+{
+    "name": "@0x84d0u/uicool-997",
+    "version": "0.1.0",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./theme.css": "./src/index.css"
+    },
+    "scripts": {
+        "build:js": "tsup",
+        "build": "clear && rm -rf dist && npm run build:js",
+        "dev": "concurrently \"npm:build:js -- --watch"
+    },
+    "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18"
+    },
+    "devDependencies": {
+        "@types/react": "latest",
+        "concurrently": "latest",
+        "tailwindcss": "^4.1.15",
+        "tsup": "latest",
+        "typescript": "latest"
+    }
+}
