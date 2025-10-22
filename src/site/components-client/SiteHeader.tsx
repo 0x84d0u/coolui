@@ -27,11 +27,11 @@ export const SiteHeader = ({
   return <header
     className={cn(
       "sticky top-0 z-30 transition-colors duration-300",
-      "supports-[backdrop-filter]:backdrop-blur bg-background/80 border-b",
+      "supports-backdrop-filter:backdrop-blur bg-background/80 border-b",
       header.scrolled ? "border-border/80 bg-background/90" : "border-transparent"
     )}
   >
-    <Container className="flex items-center justify-between h-16 gap-2 px-md">
+    <Container className="flex items-center justify-between h-16 gap-2">
       <Stack>
         {enableSidebarToggle && <SiteSidebarToggler />}
       </Stack>

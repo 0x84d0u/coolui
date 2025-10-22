@@ -1,7 +1,6 @@
-import { cn } from "@core-server";
+import { cn, Icon, IconName } from "@core-server";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes } from "react";
-import { DynamicIcon , IconName } from 'lucide-react/dynamic';
 
 const iconButtonVariants = cva(
   "inline-flex items-center justify-center rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:opacity-50 disabled:pointer-events-none",
@@ -42,7 +41,7 @@ export const IconButton = ({
       className={cn(iconButtonVariants({ variant, size, className }))}
       {...props}
     >
-        <DynamicIcon name={iconName}/>
+        <Icon name={iconName}/>
     </button>
   );
 };

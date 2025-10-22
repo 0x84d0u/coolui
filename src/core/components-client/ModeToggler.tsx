@@ -2,7 +2,7 @@
 
 import { useMounted } from "@core-client";
 import { useTheme } from "next-themes"
-import { IconButton } from "./IconButton";
+import { IconButton } from "../components-server/IconButton";
 
 export function ModeToggler() {
   const { theme, setTheme } = useTheme();

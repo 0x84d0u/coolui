@@ -12,13 +12,20 @@ export const SiteSidebar = ({ children }: { children?: ReactNode }) => {
                 className={cn(
                     "fixed inset-y-0 left-0 z-40 w-64 bg-muted border-r border-border flex flex-col transition-transform duration-300",
                     "laptop:static laptop:translate-x-0 laptop:shrink-0",
-                    sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
+                    sidebar.isOpen ? "translate-x-0" : "-translate-x-full",
+                    
                 )}
             >
-                <div className="p-lg sticky top-0 border-b border-border bg-muted/70 backdrop-blur">
+                <div className="p-lg sticky top-0">
+                {children}
+
+                </div>
+                {/* <div className="p-lg sticky top-0 border-b border-border bg-muted/70 backdrop-blur">
                     <span className="font-bold text-lg tracking-tight">UI Cool</span>
                 </div>
-                <nav className="overflow-y-auto p-md flex flex-col gap-1">{children}</nav>
+                
+                <nav className="overflow-y-auto p-md flex flex-col gap-1">{children}</nav> */}
+
             </aside>
 
             {/* Overlay (mobile only) */}

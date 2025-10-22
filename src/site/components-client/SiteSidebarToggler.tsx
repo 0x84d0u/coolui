@@ -1,6 +1,6 @@
 "use client"
 
-import { IconButton } from '@/core/components-client/IconButton';
+import { IconButton } from '@/core/components-server/IconButton';
 import { useSiteLayout } from '../hooks/useSiteLayout';
 
 export function SiteSidebarToggler() {
