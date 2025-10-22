@@ -1,18 +1,66 @@
-@import 'tailwindcss';
+@config '../tailwind.config.ts';
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Colors */
-  --color-primary: hsl(210 100% 50%);
-  --color-secondary: hsl(145 63% 49%);
-  --color-background: hsl(0 0% 100%);
-  --color-text: hsl(0 0% 10%);
+  /* === 1. Core Layout (Breakpoints, Spacing, Radius) === */
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
 
-  /* Spacing */
+  --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
 
-  /* Border Radius */
+  --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
   --radius-full: 9999px;
+
+  /* === 2. Raw Color Palette (Internal use) === */
+  /* These are just HSL values, they don't create classes */
+  --palette-gray-50: 210 20% 98%;
+  --palette-gray-100: 210 20% 96%;
+  --palette-gray-300: 210 15% 90%;
+  --palette-gray-500: 210 10% 70%;
+  --palette-gray-700: 210 10% 45%;
+  --palette-gray-900: 210 25% 15%;
+  --palette-gray-950: 210 30% 10%;
+
+  --palette-primary-light: 220 85% 55%;
+  --palette-primary-dark: 220 85% 60%;
+  --palette-primary-foreground-light: 0 0% 100%;
+  --palette-primary-foreground-dark: 210 30% 10%; /* gray-950 */
+
+  /* === 3. Semantic Tokens (Light Mode) === */
+  /* These are what create your utility classes (e.g., bg-background, text-primary) */
+  --color-background: hsl(var(--palette-gray-50));
+  --color-foreground: hsl(var(--palette-gray-950));
+  --color-muted: hsl(var(--palette-gray-100));
+  --color-muted-foreground: hsl(var(--palette-gray-700)); /* Improved contrast */
+  --color-border: hsl(var(--palette-gray-300)); /* Improved contrast */
+  --color-popover: hsl(var(--palette-gray-50));
+  --color-popover-foreground: hsl(var(--palette-gray-950));
+
+  /* This now correctly references the palette */
+  --color-primary: hsl(var(--palette-primary-light));
+  --color-primary-foreground: hsl(var(--palette-primary-foreground-light));
+}
+
+/* === 4. Semantic Tokens (Dark Mode) === */
+/* This block MUST be OUTSIDE the @theme directive */
+.dark {
+  --color-background: hsl(var(--palette-gray-950));
+  --color-foreground: hsl(var(--palette-gray-50));
+  --color-muted: hsl(var(--palette-gray-900));
+  --color-muted-foreground: hsl(var(--palette-gray-500));
+  --color-border: hsl(var(--palette-gray-700));
+  --color-popover: hsl(var(--palette-gray-950));
+  --color-popover-foreground: hsl(var(--palette-gray-50));
+
+  /* This now correctly references the dark palette */
+  --color-primary: hsl(var(--palette-primary-dark));
+  --color-primary-foreground: hsl(var(--palette-primary-foreground-dark));
 }

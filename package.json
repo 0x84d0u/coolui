@@ -1,21 +1,41 @@
 {
-    "name": "@0x84d0u/uicool-997",
+    "name": "@0x84d0u/coolui",
     "version": "0.1.0",
-    "files": [
-        "dist"
-    ],
     "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
+        "./core": {
+            "types": "./dist/core/index.server.d.ts",
+            "import": "./dist/core/index.server.mjs",
+            "require": "./dist/core/index.server.js"
+        },
+        "./core-client": {
+            "types": "./dist/core/index.client.d.ts",
+            "import": "./dist/core/index.client.mjs",
+            "require": "./dist/core/index.client.js"
+        },
+        "./site": {
+            "types": "./dist/site/index.server.d.ts",
+            "import": "./dist/site/index.server.mjs",
+            "require": "./dist/site/index.server.js"
+        },
+        "./site-client": {
+            "types": "./dist/site/index.client.d.ts",
+            "import": "./dist/site/index.client.mjs",
+            "require": "./dist/site/index.client.js"
         },
         "./theme.css": "./src/index.css"
     },
     "scripts": {
+        "build:css": "tailwindcss -i src/index.css -o dist/theme.css && cp src/index.css dist/theme.tw.css",
         "build:js": "tsup",
-        "build": "clear && rm -rf dist && npm run build:js",
-        "dev": "concurrently \"npm:build:js -- --watch"
+        "build": "npm run clean && npm run build:js && npm run build:css",
+        
+        "dev:js": "tsup --watch",
+        "dev:css": "tailwindcss -i src/index.css -o dist/theme.css --watch",
+        "dev": "concurrently \"npm:dev:js\" \"npm:dev:css\"",
+
+        "clean": "rm -rf dist",
+        "typecheck": "tsc --noEmit"
+
     },
     "peerDependencies": {
         "react": ">=18",
@@ -24,8 +44,16 @@
     "devDependencies": {
         "@types/react": "latest",
         "concurrently": "latest",
-        "tailwindcss": "^4.1.15",
         "tsup": "latest",
         "typescript": "latest"
+    },
+    "dependencies": {
+        "tailwindcss": "^4.1.15",
+        "@tailwindcss/cli": "^4.1.15",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.546.0",
+        "next-themes": "^0.4.6",
+        "tailwind-merge": "^3.3.1"
     }
 }

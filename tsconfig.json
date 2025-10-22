@@ -23,6 +23,12 @@
     /* === Path Aliases === */
     "baseUrl": ".",
     "paths": {
+      "@core-server": ["./src/core/index.server.ts"],
+      "@core-client": ["./src/core/index.client.ts"],
+
+      "@site-server": ["./src/site/index.server.ts"],
+      "@site-client": ["./src/site/index.client.ts"],
+      
       "@/*": ["./src/*"]
     },
 
@@ -30,6 +36,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"],
+  "include": ["src", "src/site/contexts/.tsxContext.tsx"],
   "exclude": ["node_modules", "dist"]
 }
