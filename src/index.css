@@ -117,7 +117,7 @@
   /* Muted / Borders */
   --color-muted: hsl(var(--palette-gray-900));
   --color-muted-foreground: hsl(var(--palette-gray-500));
-  --color-border: hsl(var(--palette-gray-700));
+  --color-border: hsl(var(--palette-gray-700) / 0.6);
 
   /* Popover / Overlay */
   --color-popover: hsl(var(--palette-gray-950));

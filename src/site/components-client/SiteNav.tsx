@@ -1,13 +1,11 @@
 import React from "react";
 import { cn, IconName } from "@core-server";
-import { SiteNavItem } from "../components-server/SiteNavItem";
-
-// === Types ===
+import { SiteNavItem } from "@site-server";
 
 export interface NavItem {
   label: string;
   href?: string;
-  icon?: IconName; 
+  icon?: IconName;
   active?: boolean;
   items?: NavItem[];
 }
@@ -30,17 +28,11 @@ export interface SiteNavProps {
   renderItem?: (props: RenderItemProps) => React.ReactNode;
 }
 
-// === Component ===
-
-export const SiteNav = ({
-  groups,
-  className,
-  renderItem,
-}: SiteNavProps) => {
+export const SiteNav = ({ groups, className, renderItem }: SiteNavProps) => {
   return (
-    <nav className={cn("flex flex-col gap-4", className)}>
+    <nav className={cn("flex flex-col gap-5", className)}>
       {groups.map((group, i) => (
-        <div key={group.label || i} className="flex flex-col gap-1">
+        <div key={group.label || i} className="flex flex-col gap-2">
           {group.label && (
             <div className="text-xs font-semibold text-muted-foreground px-3 uppercase tracking-wide">
               {group.label}
@@ -62,7 +54,7 @@ export const SiteNav = ({
   );
 };
 
-// === Recursive node ===
+// === Recursive Node ===
 
 const NavItemNode = ({
   item,
@@ -73,16 +65,13 @@ const NavItemNode = ({
   depth: number;
   renderItem?: (props: RenderItemProps) => React.ReactNode;
 }) => {
-  // Default to open if the item is active
   const [open, setOpen] = React.useState(item.active || false);
   const hasChildren = !!item.items?.length;
-
   const onToggle = hasChildren ? () => setOpen((prev) => !prev) : undefined;
 
   return (
     <div className="flex flex-col">
       {renderItem ? (
-        // Pass isOpen state to custom renderer
         renderItem({ item, depth, isOpen: open, onToggle })
       ) : (
         <SiteNavItem
@@ -93,19 +82,23 @@ const NavItemNode = ({
           active={item.active}
           hasChildren={hasChildren}
           depth={depth}
-          isOpen={open} // Pass isOpen state
+          isOpen={open}
           onToggle={onToggle}
         />
       )}
 
-      {hasChildren && open && (
-        // Removed `ml-4` - indentation is now handled by NavItemButton
-        <div className="mt-1 flex flex-col gap-1">
+      {hasChildren && (
+        <div
+          className={cn(
+            "flex flex-col gap-1 mt-1 transition-all duration-300 overflow-hidden",
+            open ? "max-h-screen" : "max-h-0"
+          )}
+        >
           {item.items!.map((child) => (
             <NavItemNode
               key={child.label}
               item={child}
-              depth={depth + 1} // Increment depth for children
+              depth={depth + 1}
               renderItem={renderItem}
             />
           ))}
