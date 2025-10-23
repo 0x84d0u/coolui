@@ -1,4 +1,4 @@
-import { cn, Icon, IconName } from "@core-server";
+import { cn, Icon, IconName } from "@core";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes } from "react";
 

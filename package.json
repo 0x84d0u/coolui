@@ -12,6 +12,17 @@
             "import": "./dist/core/index.client.mjs",
             "require": "./dist/core/index.client.js"
         },
+
+        "./form": {
+            "types": "./dist/form/index.server.d.ts",
+            "import": "./dist/form/index.server.mjs",
+            "require": "./dist/form/index.server.js"
+        },
+        "./form-client": {
+            "types": "./dist/form/index.client.d.ts",
+            "import": "./dist/form/index.client.mjs",
+            "require": "./dist/form/index.client.js"
+        },
         "./site": {
             "types": "./dist/site/index.server.d.ts",
             "import": "./dist/site/index.server.mjs",
@@ -21,6 +32,11 @@
             "types": "./dist/site/index.client.d.ts",
             "import": "./dist/site/index.client.mjs",
             "require": "./dist/site/index.client.js"
+        },
+        "./typo": {
+            "types": "./dist/typo/index.server.d.ts",
+            "import": "./dist/typo/index.server.mjs",
+            "require": "./dist/typo/index.server.js"
         },
         "./theme.css": "./src/index.css"
     },

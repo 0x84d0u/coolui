@@ -1,7 +1,7 @@
 "use client"
 import { ReactNode } from "react";
 import { useSiteLayout } from "../hooks/useSiteLayout";
-import { cn } from "@core-server";
+import { cn } from "@core";
 
 export const SiteSidebar = ({ children }: { children?: ReactNode }) => {
     const { sidebar } = useSiteLayout();

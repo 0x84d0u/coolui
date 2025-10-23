@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@core-server";
+import { cn } from "@core";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes } from "react";
 

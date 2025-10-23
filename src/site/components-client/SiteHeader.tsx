@@ -1,9 +1,9 @@
 "use client";
 
-import { ModeToggler } from "@core-client";
-import { cn, Container, Stack } from "@core-server";
-import { SiteSidebarToggler, useSiteLayout } from "@site-client";
 import { ReactNode } from "react";
+import { cn, Container, Stack } from "@core";
+import { ModeToggler } from "@core-client";
+import { SiteSidebarToggler, useSiteLayout } from "@site-client";
 
 interface Props {
   children?: ReactNode

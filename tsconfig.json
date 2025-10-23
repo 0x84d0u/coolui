@@ -23,11 +23,18 @@
     /* === Path Aliases === */
     "baseUrl": ".",
     "paths": {
-      "@core-server": ["./src/core/index.server.ts"],
+      "@core": ["./src/core/index.server.ts"],
       "@core-client": ["./src/core/index.client.ts"],
 
-      "@site-server": ["./src/site/index.server.ts"],
+      "@form": ["./src/form/index.server.ts"],
+      "@form-client": ["./src/form/index.client.ts"],
+
+      "@site": ["./src/site/index.server.ts"],
       "@site-client": ["./src/site/index.client.ts"],
+
+      
+      "@typo": ["./src/typo/index.server.ts"],
+      // "@typo-client": ["./src/typo/index.client.ts"],
       
       "@/*": ["./src/*"]
     },

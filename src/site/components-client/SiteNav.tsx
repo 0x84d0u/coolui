@@ -1,6 +1,6 @@
 import React from "react";
-import { cn, IconName } from "@core-server";
-import { SiteNavItem } from "@site-server";
+import { cn, IconName } from "@core";
+import { SiteNavItem } from "@site";
 
 export interface NavItem {
   label: string;

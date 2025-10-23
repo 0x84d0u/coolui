@@ -1,7 +1,5 @@
-import React, { ComponentProps } from 'react'
+import { ComponentProps } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { Box, type BoxProps } from './Box'
-import { cn } from '../utils'
 
 const stackVariants = cva(
   'flex',

@@ -1,5 +1,5 @@
 import React from "react";
-import { cn, Icon, IconName } from "@core-server";
+import { cn, Icon, IconName } from "@core";
 
 export type SiteNavItemProps<T extends React.ElementType = "button"> = {
   as?: T;

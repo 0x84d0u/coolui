@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { cn } from "@core-server";
+import { cn } from "@core";
 
 type Props = {
   children?: ReactNode
