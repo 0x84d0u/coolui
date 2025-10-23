@@ -8,7 +8,8 @@ type Props = {
 
 export const SiteRoot = ({ className, ...props }: Props) => <div
   className={cn(
-    "relative min-h-screen flex bg-background text-foreground",
+    "relative flex min-h-screen",
+    "bg-background text-foreground antialiased",
     className
   )}
   {...props}

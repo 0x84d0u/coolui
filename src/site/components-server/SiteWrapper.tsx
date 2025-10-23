@@ -8,8 +8,9 @@ type Props = {
 
 export const SiteWrapper = ({ className, ...props }: Props) => <div
   className={cn(
-    "flex-1 flex flex-col min-h-screen ",
-    "bg-background",
+    "min-h-screen",
+    "flex-1 flex flex-col",
+    "bg-surface text-foreground transition-colors duration-300",
     className
   )}
   {...props}

@@ -26,9 +26,11 @@ export const SiteHeader = ({
 
   return <header
     className={cn(
-      "sticky top-0 z-30 transition-colors duration-300",
-      "supports-backdrop-filter:backdrop-blur bg-background/80 border-b",
-      header.scrolled ? "border-border/80 bg-background/90" : "border-transparent"
+        "sticky top-0 z-30 border-b",
+        "bg-header/80 text-header-foreground",
+        "supports-backdrop-filter:backdrop-blur-md",
+        "transition-colors duration-300",
+        header.scrolled ? "border-border/80" : "border-transparent"
     )}
   >
     <Container className="flex items-center justify-between h-16 gap-2">
