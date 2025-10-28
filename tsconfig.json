@@ -23,19 +23,10 @@
     /* === Path Aliases === */
     "baseUrl": ".",
     "paths": {
-      "@core": ["./src/core/index.server.ts"],
-      "@core-client": ["./src/core/index.client.ts"],
-
-      "@form": ["./src/form/index.server.ts"],
-      "@form-client": ["./src/form/index.client.ts"],
-
-      "@site": ["./src/site/index.server.ts"],
-      "@site-client": ["./src/site/index.client.ts"],
-
-      
-      "@typo": ["./src/typo/index.server.ts"],
-      // "@typo-client": ["./src/typo/index.client.ts"],
-      
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@providers/*": ["src/providers/*"],
+      "@utils/*": ["src/utils/*"],
       "@/*": ["./src/*"]
     },
 
@@ -43,6 +34,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src", "src/site/contexts/.tsxContext.tsx"],
+  "include": ["src", "package", "draft/NavMenu", "draft/NavItem"],
   "exclude": ["node_modules", "dist"]
 }

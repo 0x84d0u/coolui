@@ -1,0 +1,1 @@
+export const Slot = () => <hr className="my-2 border-border/60" role="separator" />

@@ -1,0 +1,11 @@
+import React from "react"
+import { cn } from "@utils/cn"
+
+export type Props = {
+    className?: string
+    children?: React.ReactNode
+}
+
+export const Slot = ({ className, ...props }: Props) => {
+    return <dd className={cn("text-foreground", className)} {...props} />
+}

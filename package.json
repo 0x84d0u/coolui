@@ -2,41 +2,20 @@
     "name": "@0x84d0u/coolui",
     "version": "0.1.0",
     "exports": {
-        "./core": {
-            "types": "./dist/core/index.server.d.ts",
-            "import": "./dist/core/index.server.mjs",
-            "require": "./dist/core/index.server.js"
+        ".": {
+            "types": "./dist/index.server.d.ts",
+            "import": "./dist/index.server.mjs",
+            "require": "./dist/index.server.js"
         },
-        "./core-client": {
-            "types": "./dist/core/index.client.d.ts",
-            "import": "./dist/core/index.client.mjs",
-            "require": "./dist/core/index.client.js"
+        "./client": {
+            "types": "./dist/index.client.d.ts",
+            "import": "./dist/index.client.mjs",
+            "require": "./dist/index.client.js"
         },
-
-        "./form": {
-            "types": "./dist/form/index.server.d.ts",
-            "import": "./dist/form/index.server.mjs",
-            "require": "./dist/form/index.server.js"
-        },
-        "./form-client": {
-            "types": "./dist/form/index.client.d.ts",
-            "import": "./dist/form/index.client.mjs",
-            "require": "./dist/form/index.client.js"
-        },
-        "./site": {
-            "types": "./dist/site/index.server.d.ts",
-            "import": "./dist/site/index.server.mjs",
-            "require": "./dist/site/index.server.js"
-        },
-        "./site-client": {
-            "types": "./dist/site/index.client.d.ts",
-            "import": "./dist/site/index.client.mjs",
-            "require": "./dist/site/index.client.js"
-        },
-        "./typo": {
-            "types": "./dist/typo/index.server.d.ts",
-            "import": "./dist/typo/index.server.mjs",
-            "require": "./dist/typo/index.server.js"
+        "./utils": {
+            "types": "./dist/utils.d.ts",
+            "import": "./dist/utils.mjs",
+            "require": "./dist/utils.js"
         },
         "./theme.css": "./src/index.css"
     },
@@ -44,14 +23,13 @@
         "build:css": "tailwindcss -i src/index.css -o dist/theme.css && cp src/index.css dist/theme.tw.css",
         "build:js": "tsup",
         "build": "npm run clean && npm run build:js && npm run build:css",
-        
+
         "dev:js": "tsup --watch",
         "dev:css": "tailwindcss -i src/index.css -o dist/theme.css --watch",
         "dev": "concurrently \"npm:dev:js\" \"npm:dev:css\"",
 
         "clean": "rm -rf dist",
-        "typecheck": "tsc --noEmit"
-
+        "check": "tsc --noEmit"
     },
     "peerDependencies": {
         "react": ">=18",
