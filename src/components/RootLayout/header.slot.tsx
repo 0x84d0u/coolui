@@ -3,7 +3,7 @@ import { cn } from "@utils/cn";
 import { ReactNode } from "react";
 import * as Logo from "./logo.slot"
 import { Stack } from "@components/Layout/Stack";
-import { RootSidebarToggle } from "@components/RootSidebarToggle/RootSidebarToggle";
+import { SidebarToggle } from "@components/RootLayout/SidebarToggle";
 import { ThemeModeToggle } from "package/index.client";
 
 // TODO: Implement Grid
@@ -41,7 +41,7 @@ export const Slot = ({
         <Container>
             <div className="grid grid-cols-3 items-center h-16">
                 <Stack direction='row'>
-                    <RootSidebarToggle />
+                    <SidebarToggle />
                     <ThemeModeToggle />
                 </Stack>
                 <Logo.Slot className={cn("justify-self-center", logoCn)}  {...logoProps} />

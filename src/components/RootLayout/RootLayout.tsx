@@ -1,7 +1,7 @@
 "use client";
 
 import * as Root from "./root.slot"
-import * as Sidebar from "./sidebar.slot"
+
 import * as Content from "./content.slot"
 import * as Header from "./header.slot"
 import * as Main from "./main.slot"
@@ -9,20 +9,25 @@ import * as Footer from "./footer.slot"
 import * as Logo from "./logo.slot"
 
 import { useRootLayout } from "@hooks/useRootLayout";
+import { Sidebar, SidebarProps } from "@components/RootLayout/Sidebar/Sidebar";
 
 export type RootLayoutProps = {
-    rootCn?: string
-    sidebarCn?: string
-    contentCn?: string
-    headerCn?: string
-    mainCn?: string
-    footerCn?: string
+    className?: {
+        root?: string
+        sidebar?: SidebarProps['className'],
+        content?: string
+        header?: string,
+        main?: string
+        footer?: string
+    }
 
     asBody?: Root.OwnProps['asBody']
 
+    menu?: React.ReactNode
+    menuItems?: SidebarProps['menuItems']
+    menuWithSearch?: SidebarProps['menuWithSearch']
 
 
-    sidebar?: React.ReactNode
     header?: React.ReactNode
     logo?: Logo.Props
     children?: React.ReactNode
@@ -31,17 +36,14 @@ export type RootLayoutProps = {
 }
 
 export const RootLayout = ({
-    rootCn,
-    sidebarCn,
-    contentCn,
-    headerCn,
-    mainCn,
-    footerCn,
+    className,
 
     asBody,
+    
+    menu,
+    menuItems,
+    menuWithSearch,
 
-
-    sidebar,
     header,
     logo,
     children,
@@ -54,16 +56,15 @@ export const RootLayout = ({
     const isHeaderScrolled = ctx.header.scrolled;
     const closeSidebar = ctx.sidebar.close;
 
-
-    const rootProps: Root.Props = { asBody, className: rootCn }
-    const sidebarProps: Sidebar.Props = { isOpen: isSidebarOpen, onOverlayClick: closeSidebar, children: sidebar, className: sidebarCn }
-    const contentProps: Content.Props = { className: contentCn }
-    const headerProps: Header.Props = { isScrolled: isHeaderScrolled, className: headerCn, logo, children: header }
-    const mainProps: Main.Props = { children: children, className: mainCn }
-    const footerProps: Footer.Props = { children: footer, className: footerCn }
+    const rootProps: Root.Props = { asBody, className: className?.root }
+    const sidebarProps: SidebarProps = { isOpen: isSidebarOpen, close: closeSidebar,menu, menuItems, menuWithSearch, className: className?.sidebar }
+    const contentProps: Content.Props = { className: className?.content }
+    const headerProps: Header.Props = { isScrolled: isHeaderScrolled, className: className?.header, logo, children: header }
+    const mainProps: Main.Props = { children: children, className: className?.main }
+    const footerProps: Footer.Props = { children: footer, className: className?.footer }
 
     return <Root.Slot {...rootProps}>
-        <Sidebar.Slot {...sidebarProps} />
+        <Sidebar {...sidebarProps} />
         <Content.Slot {...contentProps}>
             <Header.Slot {...headerProps} />
             <Main.Slot {...mainProps} />
