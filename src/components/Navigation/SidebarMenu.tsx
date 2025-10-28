@@ -16,7 +16,7 @@ export type SidebarNavCustom = { type: 'custom', children?: React.ReactNode }
 
 export type SidebarNavItem = SidebarNavButton | SidebarNavDivider | SidebarNavGroup | SidebarNavCustom
 
-export type SidebarNavigationProps = {
+export type SidebarMenuProps = {
     className?: {
         root?: string,
         search?: string
@@ -27,11 +27,11 @@ export type SidebarNavigationProps = {
 }
 
 
-export const SidebarNavigation = ({
+export const SidebarMenu = ({
     className,
     withSearch,
     items,
-}: SidebarNavigationProps) => {
+}: SidebarMenuProps) => {
 
     const rootProps: Root.Props = { orientation: 'vertical', className: className?.root }
     const searchProps: Search.Props = { className: className?.search }
