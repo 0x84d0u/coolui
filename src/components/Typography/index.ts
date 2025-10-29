@@ -1,2 +1,2 @@
-export * as Text from './Components'
+export * as Text from './components'
 export * from './helpers'

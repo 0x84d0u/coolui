@@ -24,8 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@providers/*": ["src/providers/*"],
+      "@slots/*": ["src/slots/*"],
       "@utils/*": ["src/utils/*"],
       "@/*": ["./src/*"]
     },
@@ -34,6 +33,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src", "package", "draft/NavMenu", "draft/NavItem"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src", "package",],
+  "exclude": ["node_modules", "dist", "draft"]
 }

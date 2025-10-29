@@ -1,6 +1,8 @@
-import * as Typography from './typography.slot'
+import * as Typography from '../../slots/typography/typography.slot'
 
-export type { Props, OwnProps } from './typography.slot'
+export type { Props, OwnProps } from '../../slots/typography/typography.slot'
+
+
 
 export const Display = (props: Typography.Props) => <Typography.Slot
     family='display'
@@ -87,3 +89,12 @@ export const Caption = (props: Typography.Props) => <Typography.Slot
 export const Label = (props: Typography.Props) => <Typography.Slot weight='medium' size='sm' {...props} />
 export const Button = (props: Typography.Props) => <Typography.Slot weight='semibold' size='sm' {...props} />
 export const Input = (props: Typography.Props) => <Typography.Slot {...props} />
+
+
+
+export const Logo = (props: Typography.Props) => <Typography.Slot
+    family='display'
+    size='logo'
+    weight='semibold'
+    {...props}
+/>
